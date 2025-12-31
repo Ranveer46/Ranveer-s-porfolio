@@ -10,6 +10,7 @@ import contentStack from "../../Assets/Projects/chatagentplatform.png";
 import gradus from "../../Assets/Projects/gradus2.png";
 import rlAgent from "../../Assets/Projects/rl agent.png";
 import riskParity from "../../Assets/Projects/student.png";
+import risk from "../../Assets/Projects/gradus.png";
 
 function Projects() {
   return (
@@ -96,7 +97,7 @@ function Projects() {
           </Col>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={riskParity}
+              imgPath={risk}
               isBlog={false}
               title="Risk Parity Portfolio Optimization"
               description="Built a risk parity backtesting engine using Python, Pandas, NumPy, and Matplotlib. Implemented inverse-volatility allocation strategy and benchmarked portfolio performance against NASDAQ. Designed for robust financial analysis and portfolio management."
