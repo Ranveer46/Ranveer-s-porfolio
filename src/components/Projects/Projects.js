@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
+import prepWise from "../../Assets/Projects/prepwise.png";
 import phishGuard from "../../Assets/Projects/phisguard.png";
 import deepGuard from "../../Assets/Projects/cyber.png";
 import gemma from "../../Assets/Projects/gradus.png";
@@ -24,6 +25,16 @@ function Projects() {
           Here are a few projects I've worked on recently.
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={prepWise}
+              isBlog={false}
+              title="PrepWise AI"
+              description="AI-powered interview preparation platform built with Next.js, Firebase, and Google Gemini. Features real-time AI mock interviews with voice interaction, instant performance feedback, skill assessment analytics, and personalized coaching. Supports role-based interview tracks across SDE, Data Science, and Product Management."
+              ghLink="https://github.com/Ranveer46/prepAI"
+              demoLink="https://prepwise-ai-rho.vercel.app/"
+            />
+          </Col>
           <Col md={4} className="project-card">
             <ProjectCard
               imgPath={phishGuard}
