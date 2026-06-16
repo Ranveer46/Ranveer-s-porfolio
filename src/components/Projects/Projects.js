@@ -9,7 +9,7 @@ import gemma from "../../Assets/Projects/gradus.png";
 import scanPay from "../../Assets/Projects/scanpay.png";
 import contentStack from "../../Assets/Projects/chatagentplatform.png";
 import gradus from "../../Assets/Projects/gradus2.png";
-import rlAgent from "../../Assets/Projects/rl agent.png";
+import rlAgent from "../../Assets/Projects/rl-agent.png";
 import riskParity from "../../Assets/Projects/student.png";
 import risk from "../../Assets/Projects/gradus.png";
 
