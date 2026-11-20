@@ -8,11 +8,14 @@ function Type() {
         strings: [
           "Full Stack Web Developer",
           "Agentic AI Specialist",
-          "MERN Stack Developer",
+          "NLP & Backend Engineer",
+          "7x Hackathon Winner",
+          "Smart India Hackathon '25 Winner",
         ],
         autoStart: true,
         loop: true,
-        deleteSpeed: 50,
+        deleteSpeed: 45,
+        delay: 60,
       }}
     />
   );

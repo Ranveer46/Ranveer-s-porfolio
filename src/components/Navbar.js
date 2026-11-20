@@ -2,114 +2,61 @@ import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
-import { ImBlog } from "react-icons/im";
+import { AiFillStar } from "react-icons/ai";
 import {
-  AiFillStar,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
 } from "react-icons/ai";
-
 import { CgFileDocument } from "react-icons/cg";
+import { ImTrophy } from "react-icons/im";
+import { MdWorkOutline } from "react-icons/md";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
 
   function scrollHandler() {
-    if (window.scrollY >= 20) {
-      updateNavbar(true);
-    } else {
-      updateNavbar(false);
-    }
+    updateNavbar(window.scrollY >= 20);
   }
-
   window.addEventListener("scroll", scrollHandler);
 
+  const links = [
+    { to: "/", icon: <AiOutlineHome />, label: "Home" },
+    { to: "/about", icon: <AiOutlineUser />, label: "About" },
+    { to: "/experience", icon: <MdWorkOutline />, label: "Experience" },
+    { to: "/project", icon: <AiOutlineFundProjectionScreen />, label: "Projects" },
+    { to: "/achievements", icon: <ImTrophy />, label: "Achievements" },
+    { to: "/resume", icon: <CgFileDocument />, label: "Resume" },
+  ];
+
   return (
-    <Navbar
-      expanded={expand}
-      fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
-    >
+    <Navbar expanded={expand} fixed="top" expand="md" className={navColour ? "sticky" : "navbar"}>
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
-          <h2 className="purple" style={{ marginTop: "10px", fontWeight: "bold" }}>Ranveer</h2>
-        </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+          className="ms-auto"
+          onClick={() => updateExpanded(expand ? false : "expanded")}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </Navbar.Toggle>
+
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/achievements"
-                onClick={() => updateExpanded(false)}
-              >
-                <ImBlog style={{ marginBottom: "2px" }} /> Achievements
-              </Nav.Link>
-            </Nav.Item>
-
+            {links.map(({ to, icon, label }) => (
+              <Nav.Item key={to}>
+                <Nav.Link as={Link} to={to} onClick={() => updateExpanded(false)}>
+                  {icon} {label}
+                </Nav.Link>
+              </Nav.Item>
+            ))}
             <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/Ranveer46/portfolio-new"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
+              <a href="https://github.com/Ranveer46/portfolio-new" target="_blank" rel="noreferrer" className="fork-btn-inner">
+                <CgGitFork style={{ fontSize: "1.1em" }} />
+                <AiFillStar style={{ fontSize: "1em" }} />
+              </a>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

@@ -1,40 +1,64 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
+import { CgWebsite } from "react-icons/cg";
+import { HiArrowUpRight } from "react-icons/hi2";
 
 function ProjectCards(props) {
   return (
-    <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
-          {props.description}
-        </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
-        {"\n"}
-        {"\n"}
+    <div className="pro-card">
+      {/* Badge */}
+      {props.badge && (
+        <div
+          className="pro-card-badge"
+          style={{
+            color: props.badgeColor || "#c770f0",
+            border: `1px solid ${props.badgeColor || "#c770f0"}`,
+            background: `${props.badgeColor || "#c770f0"}18`,
+          }}
+        >
+          {props.badge}
+        </div>
+      )}
 
-        {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
+      {/* Image */}
+      <div className="pro-card-img-wrap">
+        <img src={props.imgPath} alt={props.title} className="pro-card-img" />
+        <div className="pro-card-img-overlay" />
+      </div>
 
-        {!props.isBlog && props.demoLink && (
-          <Button
-            variant="primary"
-            href={props.demoLink}
+      {/* Body */}
+      <div className="pro-card-body">
+        <h5 className="pro-card-title">{props.title}</h5>
+        <p className="pro-card-desc">{props.description}</p>
+
+        {/* Links */}
+        <div className="pro-card-links">
+          <a
+            href={props.ghLink}
             target="_blank"
-            style={{ marginLeft: "10px" }}
+            rel="noreferrer"
+            className="pro-card-btn pro-card-btn--ghost"
           >
-            <CgWebsite /> &nbsp;
-            {"Demo"}
-          </Button>
-        )}
-      </Card.Body>
-    </Card>
+            <BsGithub size={14} />
+            <span>{props.isBlog ? "Blog" : "GitHub"}</span>
+            <HiArrowUpRight size={12} />
+          </a>
+          {!props.isBlog && props.demoLink && (
+            <a
+              href={props.demoLink}
+              target="_blank"
+              rel="noreferrer"
+              className="pro-card-btn pro-card-btn--solid"
+            >
+              <CgWebsite size={14} />
+              <span>Live Demo</span>
+              <HiArrowUpRight size={12} />
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
+
 export default ProjectCards;
