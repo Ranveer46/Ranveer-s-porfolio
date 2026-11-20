@@ -28,7 +28,7 @@ function HeroConsole() {
         <div className="console-body">
           <div className="code-line comment">
             <span className="line-num">01</span>
-            <span>// Ranveer Pensalwar — Agentic AI & Full-Stack Architect</span>
+            <span>{"// Ranveer Pensalwar — Agentic AI & Full-Stack Architect"}</span>
           </div>
           <div className="code-line">
             <span className="line-num">02</span>
